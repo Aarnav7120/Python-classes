@@ -28,7 +28,7 @@ print(type(b))"""
 Outline:
 Write a program to print the “CODINGAL” word in a reverse direction."""
 
-a="Mobile Phone"
+"""a="Mobile Phone"
 print(a[2:5])
 
 print(a[0::10])
@@ -36,4 +36,9 @@ print(a[0::10])
 print(a.upper())
 
 b="Codingal"
-print(b[::-1])
+print(b[::-1])"""
+
+a="Congratulations"
+
+print(a.upper())
+
