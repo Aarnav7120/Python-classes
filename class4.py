@@ -29,7 +29,7 @@ print("the percentage of all subjects are", percentage)"""
 Outline:
 Write a program to calculate the number of notes in the given amount?"""
 
-amount=int(input("Please enter the amount: "))
+"""amount=int(input("Please enter the amount: "))
 note10=amount/10
 note50=amount/50
 note100=amount/100
@@ -37,4 +37,13 @@ note500=amount/500
 print("requierd 10 rs notes are ",note10)
 print("requierd 50 rs notes are ",note50)
 print("requierd 100 rs notes are ",note100)
-print("requierd 500 rs notes are ",note500)
+print("requierd 500 rs notes are ",note500)"""
+
+import math
+number = float(input("Please enter a number: "))
+
+if number < 0:
+        print("Sorry, square root of a negative number is not real.")
+else:
+        square_root = math.sqrt(number)
+        print(f"The square root of {number} is {square_root}")
