@@ -1,59 +1,86 @@
-"""Operations on Sets
+"""Outline:
+Write a program to create a class with the name Student and perform 
+the following tasks - 1. Declare a variable grade 2. Print a sentence
+ inside the class 3. Create an object of class student and see the output"""
+
+"""class student:
+    grade = 10 
+    print("Hi I am a student of grade", grade)
+
+
+ob = student()"""
+
+"""Class Vehicle
 Outline:
-Write a program to create a set and perform the following
- operations on that set- 1. Create a set with integer elements
-   2. Create a set with mixed data type elements 
-   3. Create another set with elements - 1, 2, 3, 4, 3, 2 4. 
-   Create a set from a list with elements - [1, 2, 3, 2] 
-5. Print the set after 
-removing the first element from this set - [0, 1, 3, 4, 5]"""
+Write a program to create a class Vehicle and perform the following 
+tasks - 1. Create an __init__ method with arguments - max_speed and mileage 2.
+ Create an object of class Vehicle and pass the maximum speed and mileage of 
+ the car 3. Print the values of max_speed and mileage by using the object"""
+
+"""class Vehicle:
+
+    def __init__(self, max_speed, mileage):
+
+        self.max_speed = max_speed
+        self.mileage = mileage
+
+modelX = Vehicle(240, 18)
 
 
-"""my_set = {1, 2, 3}
-print(my_set)
-
-my_set = {1.0, "hello", (1, 2, 3)}
-print(my_set)
-
-my_set = {1, 2, 3, 4,3,2}
-print(my_set)
-
-num_set = set([1, 2, 3, 2])
-print("Original set:")
-print(num_set)
-num_set.pop()
-print("After removing the first element from the said set:")
-print(num_set, "\n")"""
+print("Model Max Speed:",modelX.max_speed)
+print("Model Mileage:", modelX.mileage)"""
 
 
-"""Set Intersection
+"""Class Parrot
 Outline:
-Write a program to find the intersection
- of two sets. Set1 = {green, blue} Set2 = {blue, yellow}"""
+Write a program to create a class Parrot and perform the following tasks - 1.
+ Create a class variable species 2. Create a __init__ method that has instance
+variables - name and age 3. Create instances of class Parrot, passing arguments
+as well 4.Print Class variable by accessing it 5. Print Instance variables
+ as well"""
 
-"""setx = {"green", "blue"}
-sety = {"blue", "yellow"}
-print("Original set elements:")
-print(setx)
-print(sety)
-print("\nIntersection of two said sets:")
-setz = setx.intersection(sety)
-print(setz)"""
+class Parrot:
+
+    species = "bird"
 
 
-"""Arrays
-Outline:
-Write a program to create an array with the following elements
- - [1, 3, 5, 3, 7, 9, 3]. Then find the number of occurrences
- of number 3 in the array. Also, print the reversed array."""
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
 
-import array as arr
+"""blu = Parrot("Blu", 10)
+woo = Parrot("Woo", 15)
 
-array_num = arr.array('i', [1, 3, 5, 3, 7, 9, 3])
-print("Original array: "+str(array_num))
+print("Blu is a {}".format(blu.species))
+print("Woo is also a {}".format(woo.species))
 
-print("Number of occurances of the number 3 in the said array: "+str(array_num.count(3)))
+print("{} is {} years old".format( blu.name, blu.age))
+print("{} is {} years old".format( woo.name, woo.age))"""
 
-array_num.reverse()
-print("Reverse the order of the items:")
-print(str(array_num))
+class fruit:
+
+    def __init__(self, name, color, weight):
+        self.name = name
+        self.color = color
+        self.weight = weight
+
+apple = fruit('Apple', 'Red', 'Weight')
+
+print(apple.name)
+
+
+print(apple.color)
+
+print(apple.weight)
+
+
+banana = fruit('banana', 'yellow', 10)
+
+print(banana.color)
+print(banana.name)
+print(banana.weight)
+
+
+
+
+
