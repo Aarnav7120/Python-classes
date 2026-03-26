@@ -1,38 +1,32 @@
-"""Welcome to the world of coding
-Outline:
-Write a program for print command.
+"""import pygame
+pygame.init()
+screen = pygame.display.set_mode((400, 300))
+done = False
 
-print("welcome")
-print(10)"""
+while not done:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            done = True
 
-"""Understanding the variables
-Outline:
-Write a program to create different variables to store various values.
-myvariable="Aarnav"
-print(myvariable)
-x="John"
-print(x)
-z=(100)
-print(z)"""
+    pygame.draw.rect(screen, (0, 125, 255), pygame.Rect(30, 30, 60, 60))
 
-"""Keywords
-Outline:
-Write a program to print all the keywords"""
+    pygame.display.flip()"""
 
-"""import keyword
-print(keyword.kwlist)"""
+import pygame
+pygame.init()
+window = pygame.display.set_mode((400, 400))
 
-a="December7th"
-print(a)
+window.fill((255, 255, 255))
 
-r="August20th"
-print(r)
+GREEN = (0, 255, 0)
+pygame.draw.circle(window, GREEN, (300, 300), 50)
+pygame.draw.circle(window, GREEN, (100, 100), 50, 3)
 
-v="November7th"
-print(v)
+pygame.display.update()
 
-n="August2nd"
-print(n)
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
 
-c="December24th"
-print(c)
