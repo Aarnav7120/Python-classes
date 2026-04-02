@@ -1,44 +1,81 @@
-'''Data types
-Outline:
-Write a program to find what type of datatype the given variable is?'''
+import pygame
+import random
 
-"""first="Aarnav"
-print(type(first))
+pygame.init()
 
-second=(4)
-print(type(second))
+SPRITE_COLOR_CHANGE_EVENT = pygame.USEREVENT + 1
+BACKGROUND_COLOR_CHANGE_EVENT = pygame.USEREVENT + 2
 
-third=(3.2)
-print(type(third))
 
-fourth=(True)
-print(type(fourth))"""
+Yellow = pygame.Color('yellow')
+Magenta = pygame.Color('magenta')
+orange = pygame.Color('orange')
+white = pygame.Color('white')
 
-"""Typecasting
-Outline:
-Write a program to change the datatype of given variables?"""
 
-"""a=(6.5)
-print(type(a))
+class Sprite(pygame.sprite.Sprite):
+    def __init__(self, color, width, height):
+        super().__init__()
+        self.image = pygame.Surface((width, height))
+        self.image.fill(color)
+        self.rect = self.image.get_rect()
+        self.velocity = [random.randint(-1, 1), random.randint(-1, 1)]
 
-b=int(a)
-print(type(b))"""
 
-"""String operation
-Outline:
-Write a program to print the “CODINGAL” word in a reverse direction."""
+    def update(self):
+        self.rect.move_ip(self.velocity)
 
-"""a="Mobile Phone"
-print(a[2:5])
+        boundary_hit = False
 
-print(a[0::10])
+        if self.rect.left < 0 or self.rect.right > 500:
+            self.velocity[0] = -self.velocity[0]
+            boundary_hit = True
 
-print(a.upper())
+        if self.rect.top < 0 or self.rect.bottom > 400:
+            self.velocity[1] = -self.velocity[1]
+            boundary_hit = True
 
-b="Codingal"
-print(b[::-1])"""
+        if boundary_hit:
+            pygame.event.post(pygame.event.Event(SPRITE_COLOR_CHANGE_EVENT))
+            pygame.event.post(pygame.event.Event(BACKGROUND_COLOR_CHANGE_EVENT))
 
-a="Congratulations"
+    def change_color(self):
+        self.image.fill(random.choice([Yellow, Magenta, orange, white]))
 
-print(a.upper())
+def change_background_color():
+    global bg_color
+    bg_color = random.choice([Yellow, Magenta, orange, white])
+
+all_sprites_list = pygame.sprite.Group()
+sp1 = Sprite(white, 20, 30)
+sp1.rect.x = random.randint(0, 480)
+sp1.rect.y = random.randint(0, 370)
+all_sprites_list.add(sp1)
+
+screen = pygame.display.set_mode((500, 400))
+pygame.display.set_caption("Sprite Collision Example")
+bg_color = Yellow
+
+screen.fill(bg_color)
+
+exit = False
+clock = pygame.time.Clock()
+while not exit:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            exit = True
+        elif event.type == SPRITE_COLOR_CHANGE_EVENT:
+            sp1.change_color()
+        elif event.type == BACKGROUND_COLOR_CHANGE_EVENT:
+            change_background_color()
+
+    all_sprites_list.update()
+
+    screen.fill(bg_color)
+    all_sprites_list.draw(screen)
+
+    pygame.display.flip()
+    clock.tick(240)
+
+pygame.quit()
 
