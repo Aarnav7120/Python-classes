@@ -1,32 +1,42 @@
-import pygame
+"""from tkinter import *
 
-pygame.init()
-SCREEN_WIDTH, SCREEN_HEIGHT = 500, 500
+window = Tk()
+window.title("Demo window")
+window.geometry('400x300')
 
-display_surface = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-pygame.display.set_caption('Adding image and background image')
+window.mainloop()"""
 
-background_image = pygame.image.load('background.jpg')
-background_image = pygame.transform.scale(background_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
+from tkinter import *
+from datetime import date
 
-penguin_image = pygame.image.load('penguin.png')  
-pygame.image.save(penguin_image, 'penguin.png') 
- # Save the image to ensure it's in the correct format
-penguin_image = pygame.transform.scale(penguin_image, (100, 100))
+root = Tk()
+root.title('Getting started with widgets')
+root.geometry('400x300')
 
-text = pygame.font.SysFont('Arial', 30).render('Hello, Pygame!', True, (255, 255, 255))
-pygame.color.Color('black')
- text_rect = text.get_rect(center=(SCREEN_WIDTH // 2, 50))
 
-  def game_loop():
-    running = True
-    while running:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
+lbl = Label(text="Hey There!", fg='white', bg ="#072f5f", height= 1, width=300)
 
-        display_surface.blit(background_image, (0, 0))
-        display_surface.blit(penguin_image, (200, 200))
-        display_surface.blit(text, (150, 50))
+name_lbl = Label(text="Full Name", bg ="#3895d3")
+name_entry = Entry()
 
-        pygame.display.update()
+def display():
+    name = name_entry.get()
+    global Message
+    Message = "welcome to teh application! \nToday's date is: "
+    greet = "Hello " + name + "\n"
+
+    text_box.insert(END, greet)
+    text_box.insert(END, Message)
+    text_box.insert(END, date.today())
+
+text_box = Text(height=3)
+
+btn = Button(text="begin", command=display, height=1, bg="#1261a0", fg='white')
+
+lbl.pack()
+name_lbl.pack()
+name_entry.pack()
+text_box.pack()
+btn.pack()
+
+root.mainloop()
